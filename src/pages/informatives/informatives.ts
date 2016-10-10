@@ -23,4 +23,8 @@ export class InformativesPage {
 
   }
 
+  details(item: IInformative) {
+    console.log(item);
+  }
+
 }

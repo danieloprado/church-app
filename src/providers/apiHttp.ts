@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { AppSettings } from '../app/app.settings';
 
 @Injectable()
 export class ApiHttp {
-  private API_URL = `http://localhost:3000/api/app/icb-sorocaba`;
 
   constructor(private http: Http) { }
 
@@ -18,12 +18,12 @@ export class ApiHttp {
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
     options = this.defaultHeaders(options);
-    return this.http.get(this.API_URL + url, options);
+    return this.http.get(AppSettings.API_ENDPOINT + url, options);
   }
 
   post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
     options = this.defaultHeaders(options);
-    return this.http.post(this.API_URL + url, JSON.stringify(body), options);
+    return this.http.post(AppSettings.API_ENDPOINT + url, JSON.stringify(body), options);
   }
 
 }

@@ -11,21 +11,23 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ApiHttp } from '../providers/apiHttp';
 import { Loader } from '../providers/loader';
 
-import { AuthService } from '../services/authService';
 import { InformativeService } from '../services/informativeService';
 
+import { ChurchTitleDirective } from '../directives/churchTitle';
+
 @NgModule({
+  bootstrap: [IonicApp],
   declarations: [
     MyApp,
     ChurchPage,
     AppointmentsPage,
     InformativesPage,
-    TabsPage
+    TabsPage,
+    ChurchTitleDirective
   ],
   imports: [
     IonicModule.forRoot(MyApp)
   ],
-  bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     ChurchPage,
@@ -37,7 +39,6 @@ import { InformativeService } from '../services/informativeService';
     Storage,
     ApiHttp,
     Loader,
-    AuthService,
     InformativeService
   ]
 })

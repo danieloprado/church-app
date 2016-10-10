@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Informativos</ion-title>
+    <ion-title church-title></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page">
-  <ion-item *ngFor="let item of informatives">
+  <ion-item *ngFor="let item of informatives" (click)="details(item)">
     <h2>{{item.title}}</h2>
     <p>{{item.date | date}}</p>
   </ion-item>
