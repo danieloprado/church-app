@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 import { MyApp } from './app.component';
 import { ChurchPage } from '../pages/church/church';
 import { AppointmentsPage } from '../pages/appointments/appointments';
 import { InformativesPage } from '../pages/informatives/informatives';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { Storage } from '@ionic/storage';
-import { AuthService } from '../providers/authService';
 import { ApiHttp } from '../providers/apiHttp';
-import { InformativeService } from '../providers/informativeService';
+import { Loader } from '../providers/loader';
+
+import { AuthService } from '../services/authService';
+import { InformativeService } from '../services/informativeService';
 
 @NgModule({
   declarations: [
@@ -32,8 +35,9 @@ import { InformativeService } from '../providers/informativeService';
   ],
   providers: [
     Storage,
-    AuthService,
     ApiHttp,
+    Loader,
+    AuthService,
     InformativeService
   ]
 })

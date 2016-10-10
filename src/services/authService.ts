@@ -3,10 +3,8 @@ import {Storage} from '@ionic/storage';
 
 @Injectable()
 export class AuthService {
-  static CHURCH_SLUG: string = "icb-sorocaba";
 
   constructor(private storage: Storage) {
-    console.log("storage", this.storage);
   }
 
   setToken(token: string): void {

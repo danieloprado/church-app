@@ -1,4 +1,4 @@
-import { ApiHttp } from './apiHttp';
+import { ApiHttp } from '../providers/apiHttp';
 import { Injectable } from '@angular/core';
 import { IInformative } from '../interfaces/informative';
 import { Observable } from 'rxjs/Observable';

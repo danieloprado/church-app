@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { InformativeService } from '../../providers/informativeService';
+import { Loader } from '../../providers/loader';
+import { InformativeService } from '../../services/informativeService';
 import { IInformative } from '../../interfaces/informative';
 
 @Component({
@@ -10,10 +11,16 @@ export class InformativesPage {
 
   informatives: IInformative[];
 
-  constructor(private informativeService: InformativeService) {
-    informativeService.list().subscribe(data => {
+  constructor(
+    private informativeService: InformativeService,
+    private loader: Loader
+  ) {
+
+    loader.show(informativeService.list()).subscribe(data => {
       this.informatives = data;
+      loader.hide();
     });
+
   }
 
 }
