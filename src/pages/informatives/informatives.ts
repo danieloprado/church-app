@@ -18,7 +18,6 @@ export class InformativesPage {
 
     loader.show(informativeService.list()).subscribe(data => {
       this.informatives = data;
-      loader.hide();
     });
 
   }

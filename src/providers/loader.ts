@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LoadingController, Loading } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class Loader {
@@ -12,14 +13,17 @@ export class Loader {
     this.loader = this.loading.create({ content: "Carregando" });
 	}
 
-  show(observer: Observable<T>): Observable<T> {
+  show<T>(observer: Observable<T>): Observable<T> {
     this.loaderCount++;
     this.loader.present();
 
     return observer.map(data => {
       this.hide();
       return data;
-    });
+    }).catch((err, caugth) => {
+      this.hide();
+      throw err;
+    })
   }
 
   private hide() {

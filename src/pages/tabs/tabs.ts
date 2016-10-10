@@ -12,7 +12,5 @@ export class TabsPage {
   tab2Root: any = AppointmentsPage;
   tab3Root: any = ChurchPage;
 
-  constructor() {
-
-  }
+  constructor() {  }
 }
