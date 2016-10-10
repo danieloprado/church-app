@@ -26,7 +26,13 @@ import { ChurchTitleDirective } from '../directives/churchTitle';
     ChurchTitleDirective
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      platforms: {
+        android: {
+          tabsPlacement: 'top',
+        }
+      }
+    })
   ],
   entryComponents: [
     MyApp,
