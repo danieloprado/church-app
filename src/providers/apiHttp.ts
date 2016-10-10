@@ -21,7 +21,7 @@ export class ApiHttp {
     return options;
   }
 
-  private cache(cacheKey: string, observable: Observable<Response>): Observable<Response> {
+  private fallbackCache(cacheKey: string, observable: Observable<Response>): Observable<Response> {
     return observable.map(res => {
       this.storage.set(`cache-${cacheKey}`, res);
       return res;
@@ -37,7 +37,7 @@ export class ApiHttp {
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
     options = this.defaultHeaders(options);
-    return this.cache(url, this.http.get(AppSettings.API_ENDPOINT + url, options));
+    return this.fallbackCache(url, this.http.get(AppSettings.API_ENDPOINT + url, options));
   }
 
   post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
