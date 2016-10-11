@@ -2,31 +2,26 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-import { MyApp } from './app.component';
-import { ChurchPage } from '../pages/church/church';
-import { AppointmentsPage } from '../pages/appointments/appointments';
-import { InformativesPage } from '../pages/informatives/informatives';
-import { TabsPage } from '../pages/tabs/tabs';
+import { ChurchApp } from './app.component';
 
-import { ApiHttp } from '../providers/apiHttp';
-import { Loader } from '../providers/loader';
-
-import { InformativeService } from '../services/informativeService';
-
-import { ChurchTitleDirective } from '../directives/churchTitle';
+import * as Pages from '../pages/index';
+import * as Providers from '../providers/index';
+import * as Services from '../services/index';
+import * as Directives from '../directives/index';
 
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [
-    MyApp,
-    ChurchPage,
-    AppointmentsPage,
-    InformativesPage,
-    TabsPage,
-    ChurchTitleDirective
+    ChurchApp,
+    Pages.TabsPage,
+    Pages.ChurchPage,
+    Pages.AppointmentsPage,
+    Pages.InformativeListPage,
+    Pages.InformativeDetailsPage,
+    Directives.ChurchTitleDirective,
   ],
   imports: [
-    IonicModule.forRoot(MyApp, {
+    IonicModule.forRoot(ChurchApp, {
       platforms: {
         android: {
           tabsPlacement: 'top',
@@ -35,17 +30,18 @@ import { ChurchTitleDirective } from '../directives/churchTitle';
     })
   ],
   entryComponents: [
-    MyApp,
-    ChurchPage,
-    AppointmentsPage,
-    InformativesPage,
-    TabsPage
+    ChurchApp,
+    Pages.ChurchPage,
+    Pages.AppointmentsPage,
+    Pages.InformativeListPage,
+    Pages.InformativeDetailsPage,
+    Pages.TabsPage
   ],
   providers: [
     Storage,
-    ApiHttp,
-    Loader,
-    InformativeService
+    Providers.ApiHttp,
+    Providers.Loader,
+    Services.InformativeService
   ]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
 
-import { InformativesPage } from '../informatives/informatives';
+import { InformativeListPage } from '../informative/index';
 import { AppointmentsPage } from '../appointments/appointments';
 import { ChurchPage } from '../church/church';
 
@@ -8,9 +9,12 @@ import { ChurchPage } from '../church/church';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  tab1Root: any = InformativesPage;
+  barColor: string;
+  tab1Root: any = InformativeListPage;
   tab2Root: any = AppointmentsPage;
   tab3Root: any = ChurchPage;
 
-  constructor() {  }
+  constructor(private platform: Platform) {
+    this.barColor = this.platform.is('ios') ? 'light' : 'primary';
+  }
 }
