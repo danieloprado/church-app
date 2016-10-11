@@ -12,8 +12,6 @@ import { InformativeDetailsPage } from '../details/details';
   templateUrl: 'list.html'
 })
 export class InformativeListPage {
-
-  barColor: string;
   informatives: IInformative[];
 
   constructor(

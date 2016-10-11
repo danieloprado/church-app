@@ -8,7 +8,6 @@ import { ChurchPage } from '../church/church';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  barColor: string;
   tab1Root: any = InformativeListPage;
   tab2Root: any = AppointmentsPage;
   tab3Root: any = ChurchPage;
