@@ -10,8 +10,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-
-  </ion-list>
+<ion-content padding>
+  <h1>
+    {{informative.title}}
+    <small>{{informative.date | date}}</small>
+  </h1>
+  <div class="content" Markdown>{{informative.message}}</div>
 </ion-content>
