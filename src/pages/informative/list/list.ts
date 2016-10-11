@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, Platform } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 
 import { Loader } from '../../../providers/loader';
 
@@ -18,12 +18,9 @@ export class InformativeListPage {
 
   constructor(
     public modalCtrl: ModalController,
-    private platform: Platform,
     private informativeService: InformativeService,
     private loader: Loader
   ) {
-    this.barColor = this.platform.is('ios') ? 'light' : 'primary';
-
     loader.show(informativeService.list()).subscribe(data => {
       this.informatives = data;
     });
