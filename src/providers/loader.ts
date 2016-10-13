@@ -6,14 +6,14 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class Loader {
-  private loader:Loading;
-  private loaderCount:number = 0;
+  private loader: Loading;
+  private loaderCount: number = 0;
 
-	constructor(private loading: LoadingController) {
-    this.loader = this.loading.create({ content: "Carregando" });
-	}
+  constructor(private loading: LoadingController) {
+    this.loader = this.loading.create({ content: 'Carregando' });
+  }
 
-  show<T>(observer: Observable<T>): Observable<T> {
+  public show<T>(observer: Observable<T>): Observable<T> {
     this.loaderCount++;
     this.loader.present();
 
@@ -23,15 +23,15 @@ export class Loader {
     }).catch((err, caugth) => {
       this.hide();
       throw err;
-    })
+    });
   }
 
-  private hide() {
-    if(this.loaderCount > 0) {
+  private hide(): void {
+    if (this.loaderCount > 0) {
       this.loaderCount--;
     }
 
-    if(this.loaderCount == 0) {
+    if (this.loaderCount == 0) {
       this.loader.dismissAll();
     }
   }

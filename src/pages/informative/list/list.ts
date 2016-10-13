@@ -25,7 +25,7 @@ export class InformativeListPage {
 
   }
 
-  public details(item: IInformative) {
+  public details(item: IInformative): void {
     this.modalCtrl.create(InformativeDetailsPage, item).present();
   }
 

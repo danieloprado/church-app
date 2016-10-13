@@ -8,9 +8,9 @@ import { ChurchPage } from '../church/church';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  tab1Root: any = InformativeListPage;
-  tab2Root: any = AppointmentsPage;
-  tab3Root: any = ChurchPage;
+  public tab1Root: any = InformativeListPage;
+  public tab2Root: any = AppointmentsPage;
+  public tab3Root: any = ChurchPage;
 
   constructor() {  }
 }
