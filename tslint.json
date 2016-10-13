@@ -1,9 +1,19 @@
 {
   "rules": {
+    "adjacent-overload-signatures": true,
+    "member-access": [true],
+    "member-ordering": [true],
+
+    "quotemark": [true, "single"],
     "no-duplicate-variable": true,
-    "no-unused-variable": [
-      true
-    ]
+    "no-unused-variable": [true],
+    "indent": [true, "spaces"],
+    "linebreak-style": [true, "LF"],
+    "max-file-line-count": [true, 300],
+    "max-line-length": [true, 120],
+    "no-default-export": true,
+    "no-require-imports": true,
+    "no-trailing-whitespace": true
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"

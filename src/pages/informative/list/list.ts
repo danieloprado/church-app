@@ -12,7 +12,7 @@ import { InformativeDetailsPage } from '../details/details';
   templateUrl: 'list.html'
 })
 export class InformativeListPage {
-  informatives: IInformative[];
+  public informatives: IInformative[];
 
   constructor(
     public modalCtrl: ModalController,
@@ -25,7 +25,7 @@ export class InformativeListPage {
 
   }
 
-  details(item: IInformative) {
+  public details(item: IInformative) {
     this.modalCtrl.create(InformativeDetailsPage, item).present();
   }
 
