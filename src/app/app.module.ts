@@ -9,6 +9,9 @@ import * as Providers from '../providers/index';
 import * as Services from '../services/index';
 import * as Directives from '../directives/index';
 
+import { SlidesPage } from '../pages/slides/slides';
+
+
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [
@@ -19,6 +22,7 @@ import * as Directives from '../directives/index';
     Pages.InformativeListPage,
     Pages.InformativeDetailsPage,
     Directives.ChurchTitleDirective,
+    SlidesPage
   ],
   imports: [
     IonicModule.forRoot(ChurchApp, {
@@ -35,7 +39,8 @@ import * as Directives from '../directives/index';
     Pages.AppointmentsPage,
     Pages.InformativeListPage,
     Pages.InformativeDetailsPage,
-    Pages.TabsPage
+    Pages.TabsPage,
+    SlidesPage
   ],
   providers: [
     Storage,
