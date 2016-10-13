@@ -7,11 +7,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class InformativeService {
 
-	constructor(private apiHttp: ApiHttp) {
+  constructor(private apiHttp: ApiHttp) {
 
-	}
+  }
 
-  list(): Observable<IInformative[]>{
+  public list(): Observable<IInformative[]>{
     return this.apiHttp.get(`/informatives`).map(res => res.json());
   }
 

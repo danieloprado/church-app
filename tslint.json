@@ -39,7 +39,8 @@
     "semicolon": [true, "always"],
     "no-consecutive-blank-lines": true,
     "object-literal-key-quotes": [true, "as-needed"],
-    "object-literal-shorthand": true
+    "object-literal-shorthand": true,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"]
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"
