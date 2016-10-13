@@ -7,7 +7,7 @@ import { IInformative } from '../../../interfaces/informative';
   templateUrl: 'details.html'
 })
 export class InformativeDetailsPage {
-  informative: IInformative;
+  public informative: IInformative;
 
   constructor(
     public params: NavParams,
@@ -16,7 +16,7 @@ export class InformativeDetailsPage {
     this.informative = this.params.data;
   }
 
-  dismiss() {
+  public dismiss(): void {
     this.viewCtrl.dismiss();
   }
 }

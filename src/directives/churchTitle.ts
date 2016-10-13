@@ -6,10 +6,10 @@ import { AppSettings } from '../app/app.settings';
 })
 export class ChurchTitleDirective {
 
-	constructor(renderer: Renderer, el: ElementRef) {
-    setTimeout(function() {
+  constructor(renderer: Renderer, el: ElementRef) {
+    setTimeout(()=> {
       renderer.createText(el.nativeElement.querySelector('.toolbar-title'), AppSettings.CHURCH_NAME);
     }, 0);
-	}
+  }
 
 }

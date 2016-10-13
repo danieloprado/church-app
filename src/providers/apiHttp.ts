@@ -13,10 +13,20 @@ export class ApiHttp {
     console.log(storage);
   }
 
+  public get(url: string, options?: RequestOptionsArgs): Observable<Response> {
+    options = this.defaultHeaders(options);
+    return this.fallbackCache(url, this.http.get(AppSettings.API_ENDPOINT + url, options));
+  }
+
+  public post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
+    options = this.defaultHeaders(options);
+    return this.http.post(AppSettings.API_ENDPOINT + url, JSON.stringify(body), options);
+  }
+
   private defaultHeaders(options?: RequestOptionsArgs): RequestOptionsArgs {
     options = options || {};
     options.headers = options.headers || new Headers();
-    options.headers.append("Content-type", "application/json");
+    options.headers.append('Content-type', 'application/json');
 
     return options;
   }
@@ -33,16 +43,6 @@ export class ApiHttp {
         return new Response(data);
       });
     });
-  }
-
-  get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    options = this.defaultHeaders(options);
-    return this.fallbackCache(url, this.http.get(AppSettings.API_ENDPOINT + url, options));
-  }
-
-  post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    options = this.defaultHeaders(options);
-    return this.http.post(AppSettings.API_ENDPOINT + url, JSON.stringify(body), options);
   }
 
 }

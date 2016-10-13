@@ -11,7 +11,7 @@ export class InformativeService {
 
   }
 
-  public list(): Observable<IInformative[]>{
+  public list(): Observable<IInformative[]> {
     return this.apiHttp.get(`/informatives`).map(res => res.json());
   }
 
