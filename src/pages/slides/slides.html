@@ -6,7 +6,8 @@
   <ion-toolbar [color]="isIOS ? 'light': 'primary'" no-border-top>
     <ion-segment [color]="isIOS ? 'primary': 'light'" [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
       <ion-segment-button value="{{slide.id}}" *ngFor="let slide of slides">
-        <ion-icon [name]="slide.icon"></ion-icon>
+        <ion-icon [name]="slide.icon" *ngIf="!isWindows"></ion-icon>
+        <span *ngIf="isWindows">{{slide.title}}</span>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -17,7 +18,8 @@
 
   <ion-slides #slider (ionDidChange)="onSlideChanged($event)">
     <ion-slide *ngFor="let slide of slides" [ngSwitch]="slide.id">
-      <page-informative-list *ngSwitchCase="'informatives'"></page-informative-list>
+      <page-informative-list [type]="slide.type" *ngSwitchCase="'informatives'"></page-informative-list>
+      <page-informative-list [type]="slide.type" *ngSwitchCase="'cell'"></page-informative-list>
       <h1 *ngSwitchCase="'appointments'">appointments</h1>
       <h1 *ngSwitchCase="'church'">church</h1>
     </ion-slide>

@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides, Platform } from 'ionic-angular';
 
+import { enInformativeType } from '../../interfaces/informative';
+
 @Component({
   selector: 'page-slides',
   templateUrl: 'slides.html'
@@ -10,15 +12,17 @@ export class SlidesPage {
   public slider: Slides;
 
   public isIOS: boolean;
+  public isWindows: boolean;
   public selectedSegment: string;
-  public slides: { id: string, icon: string, title: string }[];
+  public slides: { id: string, icon: string, title: string, type?: enInformativeType }[];
 
   constructor(public navCtrl: NavController, private platform: Platform) {
     this.isIOS = platform.is('ios');
+    this.isWindows = platform.is('windows');
 
     this.slides = [
-      { id: 'informatives', icon: 'paper', title: 'Informativo' },
-      { id: 'cell', icon: 'people', title: 'Informativo' },
+      { id: 'informatives', icon: 'paper', title: 'Informativo', type: enInformativeType.church },
+      { id: 'cell', icon: 'people', title: 'Célula', type: enInformativeType.cell },
       { id: 'appointments', icon: 'calendar', title: 'Agenda' },
       { id: 'church', icon: 'information-circle', title: 'Sobre' }
     ];

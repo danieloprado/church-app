@@ -1,4 +1,4 @@
 <ion-item *ngFor="let item of informatives" (click)="details(item)">
-  <h2>{{item.title}}</h2>
+  <h2>{{item.title}} {{type}}</h2>
   <p>{{item.date | date}}</p>
 </ion-item>

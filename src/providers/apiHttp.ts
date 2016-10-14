@@ -8,7 +8,6 @@ import 'rxjs/add/observable/fromPromise';
 
 @Injectable()
 export class ApiHttp {
-
   constructor(private http: Http, private storage: Storage) {
     console.log(storage);
   }
@@ -32,17 +31,19 @@ export class ApiHttp {
   }
 
   private fallbackCache(cacheKey: string, observable: Observable<Response>): Observable<Response> {
-    return observable.map(res => {
-      this.storage.set(`cache-${cacheKey}`, res);
-      return res;
-    }).catch(err => {
-      return Observable.fromPromise(this.storage.get(`cache-${cacheKey}`)).map(data => {
-        if (!data) throw err;
+     return observable.map(res => {
+        this.storage.set(`cache-${cacheKey}`, res);
+        return res;
+      }).catch(err => {
+        return Observable.fromPromise(this.storage.get(`cache-${cacheKey}`)).map(data => {
+          if (!data) throw err;
 
-        data.body = data._body;
-        return new Response(data);
+          data.body = data._body;
+          return new Response(data);
+        });
       });
-    });
+
+
   }
 
 }

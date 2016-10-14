@@ -5,4 +5,10 @@ export interface IInformative {
   message: string;
   creatorId: number;
   churchId: number;
+  typeId: enInformativeType;
+}
+
+export enum enInformativeType {
+  church = 1,
+  cell = 2
 }
