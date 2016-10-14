@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar no-border-bottom [color]="isIOS ? 'light': 'primary'">
     <ion-title church-title></ion-title>
   </ion-navbar>
 
-  <ion-toolbar color="primary">
-    <ion-segment color="light" [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
+  <ion-toolbar [color]="isIOS ? 'light': 'primary'" no-border-top>
+    <ion-segment [color]="isIOS ? 'primary': 'light'" [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
       <ion-segment-button value="{{slide.id}}" *ngFor="let slide of slides">
         <ion-icon [name]="slide.icon"></ion-icon>
       </ion-segment-button>
