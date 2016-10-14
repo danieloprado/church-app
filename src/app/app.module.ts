@@ -11,7 +11,6 @@ import * as Directives from '../directives/index';
 
 import { SlidesPage } from '../pages/slides/slides';
 
-
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [

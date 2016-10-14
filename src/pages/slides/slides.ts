@@ -10,13 +10,14 @@ export class SlidesPage {
   public slider: Slides;
 
   public selectedSegment: string;
-  public slides: { id: string, title: string }[];
+  public slides: { id: string, icon: string, title: string }[];
 
   constructor(public navCtrl: NavController) {
     this.slides = [
-      { id: 'informatives', title: 'Informativo' },
-      { id: 'appointments', title: 'Agenda' },
-      { id: 'church', title: 'Sobre' }
+      { id: 'informatives', icon: 'paper', title: 'Informativo' },
+      { id: 'informatives', icon: 'people', title: 'Informativo' },
+      { id: 'appointments', icon: 'calendar', title: 'Agenda' },
+      { id: 'church', icon: 'info', title: 'Sobre' }
     ];
     this.selectedSegment = this.slides[0].id;
   }

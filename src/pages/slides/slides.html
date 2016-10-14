@@ -1,23 +1,25 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>ICB Sorocaba</ion-title>
+    <ion-title church-title></ion-title>
   </ion-navbar>
 
   <ion-toolbar color="primary">
     <ion-segment color="light" [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
       <ion-segment-button value="{{slide.id}}" *ngFor="let slide of slides">
-        {{slide.title}}
+        <ion-icon [name]="slide.icon"></ion-icon>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <ion-slides #slider (ionDidChange)="onSlideChanged($event)">
-    <ion-slide *ngFor="let slide of slides">
-      <h1>{{ slide.title }}</h1>
+    <ion-slide *ngFor="let slide of slides" [ngSwitch]="slide.id">
+      <page-informative-list *ngSwitchCase="'informatives'"></page-informative-list>
+      <h1 *ngSwitchCase="'appointments'">appointments</h1>
+      <h1 *ngSwitchCase="'church'">church</h1>
     </ion-slide>
   </ion-slides>
 
