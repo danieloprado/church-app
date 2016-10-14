@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar [color]="isIOS ? 'light' : 'primary'">
     <ion-title>Informativo</ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">

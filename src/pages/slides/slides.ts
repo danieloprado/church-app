@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, Slides, Platform } from 'ionic-angular';
 
 import { enInformativeType } from '../../interfaces/informative';
@@ -7,7 +7,7 @@ import { enInformativeType } from '../../interfaces/informative';
   selector: 'page-slides',
   templateUrl: 'slides.html'
 })
-export class SlidesPage {
+export class SlidesPage implements OnInit {
   @ViewChild('slider')
   public slider: Slides;
 
@@ -16,9 +16,14 @@ export class SlidesPage {
   public selectedSegment: string;
   public slides: { id: string, icon: string, title: string, type?: enInformativeType }[];
 
-  constructor(public navCtrl: NavController, private platform: Platform) {
-    this.isIOS = platform.is('ios');
-    this.isWindows = platform.is('windows');
+  constructor(
+    public navCtrl: NavController,
+    private platform: Platform
+  ) { }
+
+  public ngOnInit(): void {
+    this.isIOS = this.platform.is('ios');
+    this.isWindows = this.platform.is('windows');
 
     this.slides = [
       { id: 'informatives', icon: 'paper', title: 'Informativo', type: enInformativeType.church },

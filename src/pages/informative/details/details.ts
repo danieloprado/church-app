@@ -1,18 +1,23 @@
-import { Component } from '@angular/core';
-import { NavParams, ViewController } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { NavParams, ViewController, Platform } from 'ionic-angular';
 import { IInformative } from '../../../interfaces/informative';
 
 @Component({
   selector: 'page-informative-details',
   templateUrl: 'details.html'
 })
-export class InformativeDetailsPage {
+export class InformativeDetailsPage implements OnInit {
+  public isIOS: boolean;
   public informative: IInformative;
 
   constructor(
-    public params: NavParams,
-    public viewCtrl: ViewController
-  ) {
+    private params: NavParams,
+    private viewCtrl: ViewController,
+    private platform: Platform
+  ) {  }
+
+  public ngOnInit(): void {
+    this.isIOS = this.platform.is('ios');
     this.informative = this.params.data;
   }
 
