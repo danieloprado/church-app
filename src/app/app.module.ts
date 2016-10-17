@@ -9,19 +9,17 @@ import * as Providers from '../providers/index';
 import * as Services from '../services/index';
 import * as Directives from '../directives/index';
 
-import { SlidesPage } from '../pages/slides/slides';
 
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [
     ChurchApp,
-    Pages.TabsPage,
+    Pages.SlidesPage,
     Pages.ChurchPage,
     Pages.AppointmentsPage,
     Pages.InformativeListPage,
     Pages.InformativeDetailsPage,
-    Directives.ChurchTitleDirective,
-    SlidesPage
+    Directives.ChurchTitleDirective
   ],
   imports: [
     IonicModule.forRoot(ChurchApp, {
@@ -34,12 +32,11 @@ import { SlidesPage } from '../pages/slides/slides';
   ],
   entryComponents: [
     ChurchApp,
+    Pages.SlidesPage,
     Pages.ChurchPage,
     Pages.AppointmentsPage,
     Pages.InformativeListPage,
-    Pages.InformativeDetailsPage,
-    Pages.TabsPage,
-    SlidesPage
+    Pages.InformativeDetailsPage
   ],
   providers: [
     Storage,
